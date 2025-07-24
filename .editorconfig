@@ -1,0 +1,21 @@
+[*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
+# cpp_indent_braces = false
+
+# 命名空间的左大括号的位置
+cpp_new_line_before_open_brace_namespace = ignore
+# 类型的左大括号的位置
+cpp_new_line_before_open_brace_type = ignore
+# 函数的左大括号的位置
+cpp_new_line_before_open_brace_function = ignore
+# 控制块的左大括号的位置
+cpp_new_line_before_open_brace_block = ignore
+# lambda 的左大括号的位置
+cpp_new_line_before_open_brace_lambda = ignore
+# 在函数名称与参数列表的左括号之间插入空格
+cpp_space_before_function_open_parenthesis = ignore
+# 在块的左大括号前插入空格
+cpp_space_before_block_open_brace = false
+# 在空大括号之间插入空格
+cpp_space_between_empty_braces = false
+# 在统一初始化和初始值设定项列表的左大括号前插入空格
+cpp_space_before_initializer_list_open_brace = false
