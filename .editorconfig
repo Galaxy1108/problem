@@ -19,3 +19,7 @@ cpp_space_before_block_open_brace = false
 cpp_space_between_empty_braces = false
 # 在统一初始化和初始值设定项列表的左大括号前插入空格
 cpp_space_before_initializer_list_open_brace = false
+# 在统一初始化和初始值设定项列表中插入空格
+cpp_space_within_initializer_list_braces = true
+# 在逗号后面插入空格
+cpp_space_after_comma = true
