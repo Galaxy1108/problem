@@ -21,9 +21,9 @@ void DP(ll u, ll f) {
         sub[u] += sub[v];
         // cout << min(k, sub[u]) << "\n\n";
         for (int j = min(k, sub[u]);j >= 0;j--) {
-            if (j == 0 || j == 1) {
+            if (dp[u][j] != LLONG_MIN) {
                 dp[u][j] += dp[v][0] + (1ll * sub[v] * (n - k - sub[v])) * w;
-                cout << dp[u][j] <<' ' << sub[v] <<' '<<n-k-sub[v]<<' '<<w << " A\n";
+                // cout << dp[u][j] <<' ' << sub[v] <<' '<<n-k-sub[v]<<' '<<w << " A\n";
                 // continue;
             }
             for (int sub_j = min(j * 1ll, sub[v]); sub_j > 0;sub_j--) {
@@ -32,16 +32,16 @@ void DP(ll u, ll f) {
                     continue;
                 }
                 ll tot = 1ll * sub_j * (k - sub_j) + 1ll * (sub[v] - sub_j) * (n - k - sub[v] + sub_j);
-                cout << tot << '\n';
+                // cout << tot << '\n';
                 dp[u][j] = max(dp[u][j], dp[u][j - sub_j] + dp[v][sub_j] + 1ll * tot * w);
-                cout << dp[u][j] << ' ' << dp[v][sub_j] <<' '<<tot*w << '\n';
+                // cout << dp[u][j] << ' ' << dp[v][sub_j] <<' '<<tot*w << '\n';
             }
         }
     }
 }
 
 int main() {
-    freopen("P3177.out", "w", stdout);
+    // freopen("P3177.in", "r", stdin);
     cin >> n >> k;
     for (int i = 1;i < n;i++) {
         ll u, v, w;
