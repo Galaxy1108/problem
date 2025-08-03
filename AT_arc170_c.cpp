@@ -1,3 +1,19 @@
+/*
+ * @Author: Galaxy_1108 int_256t@outlook.com
+ * @Date: 2025-07-27 22:30:11
+ * @LastEditors: Galaxy_1108 int_256t@outlook.com
+ * @LastEditTime: 2025-08-03 22:00:07
+ * @FilePath: \problem\AT_arc170_C.cpp
+ * @Description: 
+ */
+/*
+ * @Author: Galaxy_1108 int_256t@outlook.com
+ * @Date: 2025-07-27 22:30:11
+ * @LastEditors: Galaxy_1108 int_256t@outlook.com
+ * @LastEditTime: 2025-08-03 21:57:50
+ * @FilePath: \problem\AT_arc170_C.cpp
+ * @Description: 
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
