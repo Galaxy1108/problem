@@ -17,8 +17,6 @@ ll fast_pow(ll a, ll b) {
 ll dp[3005][3005][2];
 
 int main() {
-    freopen("CON", "r", stdin);
-    freopen("CON", "w", stdout);
     cin >> n >> m;
     for (int i = 1;i <= n;i++) {
         dp[0][i][0] = 1;
