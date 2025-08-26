@@ -3,3 +3,5 @@
 cpp_new_line_before_else = false
 # 将 do-while 循环中的“while”放在新行上
 cpp_new_line_before_while_in_do_while = false
+# 在函数名称与参数列表的左括号之间插入空格
+cpp_space_before_function_open_parenthesis = ignore
