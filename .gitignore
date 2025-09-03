@@ -1,4 +1,5 @@
 /.vscode
 /.test
+/.fix
 test.cpp
 *.exe
