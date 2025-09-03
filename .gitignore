@@ -1,5 +1,6 @@
 /.vscode
 /.test
 /.fix
+/.cph-ng
 test.cpp
 *.exe
