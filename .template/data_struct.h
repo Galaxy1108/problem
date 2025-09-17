@@ -325,4 +325,91 @@ namespace data_struct {
     typename fhq_treap<_T, _N>::iterator fhq_treap<_T, _N>::upper_bound(_T val) {
         return next(val);
     }
+
+
+    /**
+     * @brief ST表
+     * @tparam _T 需要维护的数据类型
+     * @tparam _N 需要的数组长度
+     */
+    template <typename _T, size_t _N>
+    struct ST {
+        _T* arrays;
+        _T st[_N][30];
+        idx_t sizes;
+        _T (*cmp)(_T, _T);
+
+        ST() {};
+        ST(_T* _arrays, idx_t _sizes, _T (*_cmp)(_T, _T)) : arrays(_arrays), sizes(_sizes), cmp(_cmp) {}
+
+        void    set         (_T* _arrays, idx_t _sizes, _T (*_cmp)(_T, _T));
+        void    set_array   (_T* _arrays);
+        void    set_size    (idx_t _sizes);
+        void    set_cmp     (_T (*_cmp)(_T, _T));
+        void    init        ();
+        _T      query       (idx_t l, idx_t r);
+    };
+
+    /**
+     * @brief 绑定数组和比较函数
+     * @param _arrays 数组
+     * @param _sizes 数组长度
+     * @param _cmp 比较函数
+     */
+    template <typename _T, size_t _N>
+    void ST<_T, _N>::set(_T* _arrays, idx_t _sizes, _T (*_cmp)(_T, _T)) {
+        arrays = _arrays;
+        sizes = _sizes;
+        cmp = _cmp;
+    }
+
+    /**
+     * @brief 绑定数组
+     * @param _arrays 数组
+     */
+    template <typename _T, size_t _N>
+    void ST<_T, _N>::set_array(_T* _arrays) { arrays = _arrays; }
+
+    /**
+     * @brief 绑定比较函数
+     * @param _cmp 比较函数
+     */
+    template <typename _T, size_t _N>
+    void ST<_T, _N>::set_cmp(_T (*_cmp)(_T, _T)) { cmp = _cmp; }
+
+    /**
+     * @brief 绑定数组长度
+     * @param _sizes 数组长度
+     */
+    template <typename _T, size_t _N>
+    void ST<_T, _N>::set_size(idx_t _sizes) { sizes = _sizes; }
+
+    /**
+     * @brief 初始化 ST 表
+     */
+    template <typename _T, size_t _N>
+    void ST<_T, _N>::init() {
+        for (idx_t i = 1;i <= sizes;i++) {
+            st[i][0] = arrays[i];
+        }
+        int f = log2(sizes);
+        for (idx_t i = 1;i <= f;i++) {
+            for (idx_t j = 1;j + (1 << i) <= sizes + 1;j++) {
+                st[j][i] = cmp(st[j][i - 1], st[j + (1 << (i - 1))][i - 1]);
+            }
+        }
+    }
+
+    /**
+     * @brief 查询区间 [l, r] 的最值
+     * @param l 区间左端点
+     * @param r 区间右端点
+     * @return 区间 [l, r] 的最值
+     * @pre init() 已被调用
+     */
+    template <typename _T, size_t _N>
+    _T ST<_T, _N>::query(idx_t l, idx_t r) {
+        int f = log2(r - l + 1);
+        return cmp(st[l][f], st[r - (1 << f) + 1][f]);
+    }
 };
