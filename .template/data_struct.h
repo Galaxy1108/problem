@@ -1,14 +1,10 @@
+#ifndef DATA_STRUCT_H
+#define DATA_STRUCT_H
+
 #include <bits/stdc++.h>
-#include <windows.h>
 using namespace std;
 
 namespace data_struct {
-    //自定义的 rand 函数, 基于 mt19937
-    mt19937 rand_gen(chrono::high_resolution_clock::now().time_since_epoch().count());
-
-    //用来表示下标的数据类型, 基于 unsigned int
-    using idx_t = unsigned int;
-
     /**
      * @brief 范浩强Treap
      * @tparam _T 需要维护的数据类型, 需要支持比较函数
@@ -412,4 +408,90 @@ namespace data_struct {
         int f = log2(r - l + 1);
         return cmp(st[l][f], st[r - (1 << f) + 1][f]);
     }
+
+    /**
+     * @brief 分数类
+     * @tparam _T 分子和分母类型
+     */
+    template<typename _T>
+    struct frac {
+        _T x; // 分子
+        _T y; // 分母
+
+        frac(_T x = 0, _T y = 0) : x(x), y(y) {}
+
+        void    operator=   (frac b);
+        template<typename _U, typename _U2>     friend  frac<_U>    operator+   (frac<_U> a, frac<_U2> b);
+        template<typename _U, typename _U2>     friend  frac<_U>    operator/   (frac<_U> a, _U2 b);
+        template<typename _U>                   friend  ostream&    operator<<  (ostream& os, frac<_U> p);
+    };
+
+    /**
+     * @brief 重载赋值运算符
+     * @param b 赋值对象
+     */
+    template<typename _T>
+    void frac<_T>::operator=(frac b) {
+        x = b.x;
+        y = b.y;
+    }
+
+    /**
+     * @brief 重载加法运算符
+     * @param a 加数
+     * @param b 加数
+     * @return 和
+     */
+    template<typename _T, typename _T2>
+    frac<_T> operator+(frac<_T> a, frac<_T2> b) {
+        if(a.x == 0 && a.y == 0) {
+            return b;
+        }
+        if(b.x == 0 && b.y == 0) {
+            return a;
+        }
+        frac<_T> ans;
+        i128 new_y = a.y * b.y;
+        i128 new_x = a.x * b.y + b.x * a.y;
+        ans.x = new_x;
+        ans.y = new_y;
+        i128 g = __gcd(ans.x, ans.y);
+        ans.x /= g;
+        ans.y /= g;
+        return ans;
+    }
+
+    /**
+     * @brief 重载除法运算符
+     * @param a 被除数
+     * @param b 除数
+     * @return 商
+     */
+    template<typename _T, typename _T2>
+    frac<_T> operator/(frac<_T> a, _T2 b) {
+        if(a.x == 0 && a.y == 0) {
+            return a;
+        }
+        frac<_T> ans;
+        ans.x = a.x;
+        ans.y = a.y * b;
+        i128 g = __gcd(ans.x, ans.y);
+        ans.x /= g;
+        ans.y /= g;
+        return ans;
+    }
+
+    /**
+     * @brief 重载输出运算符
+     * @param os 输出流
+     * @param p 分数
+     * @return 输出流
+     */
+    template<typename _T>
+    ostream& operator<<(ostream& os, frac<_T> p) {
+        tool::out << p.x << ' ' << p.y;
+        return os;
+    }
 };
+
+#endif

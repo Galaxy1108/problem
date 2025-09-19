@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
-#include "all.h"
+#include "algo.h"
+#include "data_struct.h"
 using namespace std;
 
 data_struct::fhq_treap<int, 100005> trr;
