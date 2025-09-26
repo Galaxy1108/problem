@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long main(){
+int main() {
     string a, b;
-    cin>>a>>b;
-    if(a=="sick" && b=="sick"){
+    cin >> a >> b;
+    if (a == "sick" && b == "sick") {
         cout << 1;
-    }else if(a=="sick" && b!="sick"){
+    } else if (a == "sick" && b != "sick") {
         cout << 2;
-    }else if(a!="sick" && b=="sick"){
+    } else if (a != "sick" && b == "sick") {
         cout << 3;
-    }else{
+    } else {
         cout << 4;
     }
 }

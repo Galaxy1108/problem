@@ -6,14 +6,14 @@ long long ver[16005];
 long long dp[16005];
 long long anss;
 
-void dfs(long long this_node,long long father_node){
+void dfs(long long this_node, long long father_node) {
     dp[this_node] = ver[this_node];
-    for(long long its:flors[this_node]){
-        if(its==father_node){
+    for (long long its : flors[this_node]) {
+        if (its == father_node) {
             continue;
         }
         dfs(its, this_node);
-        if(dp[its]>0){
+        if (dp[its] > 0) {
             dp[this_node] += dp[its];
         }
     }
@@ -21,14 +21,14 @@ void dfs(long long this_node,long long father_node){
 }
 
 
-long long main(){
+int main() {
     anss = LLONG_MIN;
     long long n;
     cin >> n;
-    for (long long i = 1; i <= n;i++){
+    for (long long i = 1; i <= n;i++) {
         cin >> ver[i];
     }
-    for (long long i = 0; i < n - 1;i++){
+    for (long long i = 0; i < n - 1;i++) {
         long long u, v;
         cin >> u >> v;
         flors[u].push_back(v);

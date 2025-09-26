@@ -1,7 +1,7 @@
 /*
 #### 问题陈述
 
-有 $N$ 张多米诺骨牌，编号从 $1$ 到 $N$ 。多米诺骨牌 $i$ 的大小是 $S_i$ 。  
+有 $N$ 张多米诺骨牌，编号从 $1$ 到 $N$ 。多米诺骨牌 $i$ 的大小是 $S_i$ 。
 考虑将一些骨牌从左到右排成一行，然后将它们推倒。当骨牌 $i$ 倒向右边时，如果紧靠骨牌 $i$ 右边的骨牌的大小最多为 $2 S_i$ ，那么该骨牌也会倒向右边。
 
 您决定选择两张或更多骨牌，并将它们从左到右排成一行。骨牌的排列必须满足以下条件：
@@ -35,47 +35,47 @@ using namespace std;
 
 long long sn[200005];
 
-long long main(){
+int main() {
     long long T;
     cin >> T;
-    while(T--){
+    while (T--) {
         long long n;
         cin >> n;
         long long last_card, card_cnts;
-        for (long long i = 1; i <= n;i++){
+        for (long long i = 1; i <= n;i++) {
             cin >> sn[i];
         }
         long long begs = sn[1], ends = sn[n];
         last_card = sn[1];
         card_cnts = 2;
-        if(begs==ends){
-            cout<< 2 << '\n';
+        if (begs == ends) {
+            cout << 2 << '\n';
             continue;
         }
         sort(sn + 1, sn + 1 + n);
         bool flag = true;
-        for (long long i = 1; i <= n;i++){
-            if(sn[i]==begs){
+        for (long long i = 1; i <= n;i++) {
+            if (sn[i] == begs) {
                 continue;
             }
-            if(sn[i]==ends){
-                if(sn[i]>2*last_card){
+            if (sn[i] == ends) {
+                if (sn[i] > 2 * last_card) {
                     flag = false;
                 }
                 break;
             }
-            if(sn[i+1]>2*last_card){
+            if (sn[i + 1] > 2 * last_card) {
                 last_card = sn[i];
                 card_cnts++;
-                if(sn[i+1]>2*last_card){
-                    flag=false;
+                if (sn[i + 1] > 2 * last_card) {
+                    flag = false;
                     break;
                 }
             }
         }
-        if(flag){
+        if (flag) {
             cout << card_cnts << '\n';
-        }else{
+        } else {
             cout << -1 << '\n';
         }
     }

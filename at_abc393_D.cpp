@@ -3,13 +3,13 @@ using namespace std;
 
 vector<long long> a;
 
-long long main() {
+int main() {
     long long n, m;
     cin >> m;
     for (long long i = 0; i < m; ++i) {
         char p;
         cin >> p;
-        if(p=='1'){
+        if (p == '1') {
             a.push_back(i);
         }
     }

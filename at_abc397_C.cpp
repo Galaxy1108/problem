@@ -5,24 +5,24 @@ long long cnts1[300005], cnts2[300005];
 long long cntt1, cntt2;
 long long sn[300005];
 
-long long main(){
+int main() {
     long long n;
     cin >> n;
-    for (long long i = 0; i < n;i++){
+    for (long long i = 0; i < n;i++) {
         cin >> sn[i];
-        if(!cnts2[sn[i]]){
+        if (!cnts2[sn[i]]) {
             cntt2++;
         }
         cnts2[sn[i]]++;
     }
     long long anss = 0;
-    for (long long i = 0; i < n;i++){
-        if(!cnts1[sn[i]]){
+    for (long long i = 0; i < n;i++) {
+        if (!cnts1[sn[i]]) {
             cntt1++;
         }
         cnts2[sn[i]]--;
         cnts1[sn[i]]++;
-        if(!cnts2[sn[i]]){
+        if (!cnts2[sn[i]]) {
             cntt2--;
         }
         anss = max(anss, cntt1 + cntt2);

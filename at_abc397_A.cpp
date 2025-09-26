@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long main(){
+int main() {
     double a;
     cin >> a;
     long long ks = a * 10;
-    if(ks>=380){
+    if (ks >= 380) {
         cout << 1;
-    }else if(ks>=375){
+    } else if (ks >= 375) {
         cout << 2;
-    }else{
+    } else {
         cout << 3;
     }
 }

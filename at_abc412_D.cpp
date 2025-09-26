@@ -9,7 +9,7 @@ vector<long long> perm;
 vector<long long> verts;
 vector<long long> rest;
 
-long long main() {
+int main() {
     long long n, m;
     cin >> n >> m;
     for (long long i = 0; i < m; i++) {
@@ -22,7 +22,7 @@ long long main() {
     fill(cyc, cyc + (1 << n), -1);
     for (long long mask = 0; mask < (1 << n); mask++) {
         long long bin_cnt = __builtin_popcount(mask);
-        if (bin_cnt < 3){
+        if (bin_cnt < 3) {
             continue;
         }
         verts.clear();
@@ -33,21 +33,21 @@ long long main() {
         }
         long long verts_min = verts[0];
         for (long long v : verts) {
-            if (v < verts_min){
+            if (v < verts_min) {
                 verts_min = v;
             }
         }
         rest.clear();
         for (long long v : verts) {
-            if (v != verts_min){
+            if (v != verts_min) {
                 rest.push_back(v);
             }
         }
         sort(rest.begin(), rest.end());
-        do{
+        do {
             perm.clear();
             perm.push_back(verts_min);
-            for (long long v : rest){
+            for (long long v : rest) {
                 perm.push_back(v);
             }
             long long com = 0;
@@ -55,11 +55,11 @@ long long main() {
             for (long long i = 0; i < k; i++) {
                 long long u = perm[i];
                 long long v = perm[(i + 1) % k];
-                if (g[u][v]){
+                if (g[u][v]) {
                     com++;
                 }
             }
-            if (com > cyc[mask]){
+            if (com > cyc[mask]) {
                 cyc[mask] = com;
             }
         } while (next_permutation(rest.begin(), rest.end()));
@@ -68,11 +68,11 @@ long long main() {
     dp[0] = 0;
     for (long long i = 1; i < (1 << n); i++) {
         for (long long sub = i; sub > 0; sub = (sub - 1) & i) {
-            if (cyc[sub] < 0){
+            if (cyc[sub] < 0) {
                 continue;
             }
             long long prev = i ^ sub;
-            if (dp[prev] == LLONG_MIN){
+            if (dp[prev] == LLONG_MIN) {
                 continue;
             }
             if (dp[prev] + cyc[sub] > dp[i]) {

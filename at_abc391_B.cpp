@@ -3,7 +3,7 @@ using namespace std;
 
 char S[55][55], T[55][55];
 
-long long main(){
+int main(){
     long long n,m;
     cin >> n >> m;
     for (long long i = 1; i <= n;i++){

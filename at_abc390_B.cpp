@@ -3,7 +3,7 @@ using namespace std;
 
 long long sn[105];
 
-long long main(){
+int main(){
     long long n;
     cin >> n;
     for (long long i = 0; i < n;i++){

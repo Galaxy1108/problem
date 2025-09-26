@@ -3,7 +3,7 @@ using namespace std;
 
 char maps[1005][1005];
 
-long long main(){
+int main(){
     long long h, w;
     cin >> h >> w;
     long long minx = LLONG_MAX, miny = LLONG_MAX, maxx = LLONG_MIN, maxy = LLONG_MIN;

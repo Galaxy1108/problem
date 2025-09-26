@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-map<long long,long long> s;
+map<long long, long long> s;
 
-long long main(){
+int main() {
     long long sn[7];
-    for (long long i = 0; i < 7;i++){
+    for (long long i = 0; i < 7;i++) {
         cin >> sn[i];
         s[sn[i]]++;
     }
     bool t2 = false, t3 = false;
-    for(auto its:s){
-        if((t3 && its.second>=2) || its.second==2){
+    for (auto its : s) {
+        if ((t3 && its.second >= 2) || its.second == 2) {
             t2 = true;
         }
-        if(its.second>=3){
+        if (its.second >= 3) {
             t3 = true;
         }
     }

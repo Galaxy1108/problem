@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long main(){
+int main() {
     long long s[3];
     cin >> s[0] >> s[1] >> s[2];
     sort(s, s + 3);
