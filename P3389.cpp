@@ -1,3 +1,9 @@
+/**
+ * @par problem
+ * 【模板】高斯消元法
+ * 给定一个线性方程组，对其求解。
+ */
+
 #include <bits/stdc++.h>
 using namespace std;
 
