@@ -1,7 +1,7 @@
 /**
  * @par problem
  * [国家集训队] 数颜色 / 维护队列
- * 带修莫队
+ * 【模板】带修莫队
  */
 #include <bits/stdc++.h>
 using namespace std;

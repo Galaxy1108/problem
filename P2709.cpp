@@ -1,7 +1,7 @@
 /**
  * @par problem
- * 数列找不同
- * 【模板】普通莫队
+ * 小B的询问
+ * 普通莫队
  */
 
 #include <bits/stdc++.h>
@@ -22,23 +22,9 @@ struct question_t {
 
 question_t que[100005];
 
-void add(int pos) {
-    if (!cnt[a[pos]]) {
-        anss++;
-    }
-    cnt[a[pos]]++;
-}
-
-void del(int pos) {
-    cnt[a[pos]]--;
-    if (!cnt[a[pos]]) {
-        anss--;
-    }
-}
-
 int main() {
-    int n, q;
-    cin >> n >> q;
+    int n, q, k;
+    cin >> n >> q >> k;
     for (int i = 1;i <= n;i++) {
         cin >> a[i];
     }
@@ -54,20 +40,24 @@ int main() {
     for (int i = 1;i <= q;i++) {
         int l = que[i].l, r = que[i].r;
         while (L < l) {
-            del(L++);
+            anss -= 2 * cnt[a[L++]]-- - 1;
         }
         while (L > l) {
-            add(--L);
+            anss += 2 * cnt[a[--L]]++ + 1;
         }
         while (R < r) {
-            add(++R);
+            anss += 2 * cnt[a[++R]]++ + 1;
         }
         while (R > r) {
-            del(R--);
+            anss -= 2 * cnt[a[R--]]-- - 1;
         }
-        ans[que[i].id] = (anss == (r - l + 1));
+        ans[que[i].id] = anss;
     }
     for (int i = 1;i <= q;i++) {
-        cout << (ans[i] ? "Yes\n" : "No\n");
+        cout << ans[i] << '\n';
     }
 }
+
+/*
+
+*/

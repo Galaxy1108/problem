@@ -2,6 +2,7 @@
 #define DATA_STRUCT_H
 
 #include <bits/stdc++.h>
+#include "tool.h"
 using namespace std;
 
 namespace data_struct {
