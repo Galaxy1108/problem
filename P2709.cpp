@@ -1,7 +1,7 @@
 /**
- * @par problem
- * 小B的询问
- * 普通莫队
+ * @name 小B的询问
+ * @par tags
+ * #莫队
  */
 
 #include <bits/stdc++.h>

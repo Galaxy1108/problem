@@ -1,7 +1,8 @@
 /**
- * @par problem
- * 数列找不同
- * 【模板】普通莫队
+ * @name 数列找不同
+ * @link https://www.luogu.com.cn/problem/P3901
+ * @par tags
+ * #【模板】 #莫队
  */
 
 #include <bits/stdc++.h>
