@@ -1,7 +1,9 @@
 /**
- * @par problem
- * [国家集训队] 数颜色 / 维护队列
- * 【模板】带修莫队
+ * @name [国家集训队] 数颜色 / 维护队列
+ * @link https://www.luogu.com.cn/problem/P1903
+ * @test 2025/10/7 莫队测试 T2
+ * @par tags
+ * #【模板】 #带修莫队
  */
 #include <bits/stdc++.h>
 using namespace std;
