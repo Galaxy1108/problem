@@ -16,6 +16,7 @@
 	// 	"description": "Log output to console"
 	// }
 	//------------------------------------------------------------------ACWing------------------------------------------------------------------
+/*
 	"add - 高精度加法": {
 		"prefix": "vector<int> add",
 		"body": "vector<int> add(vector<int> &A, vector<int> &B)  // C = A + B, A >= 0, B >= 0\n{\n    if (A.size() < B.size()) return add(B, A);\n\n    vector<int> C;\n    int t = 0;\n    for (int i = 0; i < A.size(); i ++ )\n    {\n        t += A[i];\n        if (i < B.size()) t += B[i];\n        C.push_back(t % 10);\n        t /= 10;\n    }\n\n    if (t) C.push_back(t);\n    return C;\n}\n",
@@ -366,4 +367,5 @@
 		"body": "int h[N], e[M], ne[M], idx;\nint dfn[N], low[N], timestamp;  // 时间戳\nint stk[N], top;\nint dcc_cnt;\nvector<int> dcc[N];  // 每个分量有哪些点\nbool cut[N];  // 是否为割点\nint root;\n",
 		"description": "int h[N]...邻接表tarjan-v-dcc"
 	},
+*/
 }
